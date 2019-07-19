@@ -1,0 +1,83 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Add Follow Up</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+			<form #f="ngForm" (ngSubmit)="add_followup()">
+		<div class="edit">	
+				<ion-list>
+					<ion-item>
+						<ion-label floating><span>Activity Type</span></ion-label>
+						<ion-select name="activity_type" [(ngModel)]="data.activity_type"> 
+							<ion-option value="Call">Call</ion-option>
+							<ion-option value="Meeting">Meeting</ion-option>
+						</ion-select>
+					</ion-item>
+					<!-- <div *ngIf="f.submitted && activity_type.invalid" > 
+						<p class="error-left" *ngIf="activity_type.errors.required">Required</p>
+					</div> -->
+	
+				</ion-list>
+			</div>
+			
+			<div class="all-inputs mt16">
+				<textarea class="discription" placeholder="Remark"  cols="30" rows="3" name="description" [(ngModel)]="data.description"></textarea>
+	
+				<!-- <div *ngIf="f.submitted && description.invalid" > 
+					<p class="error-left" *ngIf="description.errors.required">Required</p>
+				</div> -->
+			</div>
+			
+			<div class="edit">	
+				<ion-list>
+					<ion-item>
+						<ion-label floating><span>Next Follow Up Type</span></ion-label>
+						<ion-select name="next_followup_type" [(ngModel)]="data.next_followup_type">
+							<ion-option value="Call">Call</ion-option>
+							<ion-option value="Meeting">Meeting</ion-option>
+						</ion-select>
+					</ion-item>
+				</ion-list>
+			</div>
+			
+			<div class="all-inputs mt32">
+				<ion-item>
+					<ion-label>Next Follow Up Date <i class="material-icons">insert_invitation</i></ion-label>
+					<ion-datetime displayFormat="DD/MM/YYYY" name="next_followup_date" [(ngModel)]="data.next_followup_date"></ion-datetime>
+				</ion-item>
+			</div>
+
+			<div class="Style-btn">
+				<button ion-button color="theme" block>Submit</button>
+			</div>
+		</form>
+
+		<div class="cs-heading">Recent</div>
+
+		<div class="box b-b-none" *ngFor="let data of recent_followup ">
+				<div class="box-head">
+					<h2>{{data.activity_type |titlecase}}</h2>
+					<h1><i class="material-icons">insert_invitation</i>{{data.date_created | date: 'MMM d,y'}}</h1>
+				</div>
+				<div class="box-body dflex">
+					<div class="follow-date">
+						<div class="outer">
+							<div class="innear">
+								<h2 class="month">{{data.next_followup_date | date: 'MMMM'}}</h2>
+								<h2 class="date"> {{data.next_followup_date | date: 'd'}}</h2>
+								<h2 class="day">  {{data.next_followup_date | date: 'EEEE'}}</h2>
+							</div>
+						</div>
+					</div>
+					<div class="text">
+						<div class="outer">
+							<div class="innear">
+								<p><span>{{data.next_followup_type |titlecase}} - </span>{{data.remarks |titlecase}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</ion-content>

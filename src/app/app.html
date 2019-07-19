@@ -1,0 +1,9 @@
+<ion-nav [root]="rootPage" *ngIf="con_err == false"></ion-nav>
+<div class="nothing-here" *ngIf="con_err == true"> 
+    <div class="outer">
+        <div class="innear">
+            <img src="assets/imgs/err_con.svg" alt="">
+            <p>Connection Error</p>
+        </div>
+    </div>
+</div>

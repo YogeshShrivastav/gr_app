@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34.004">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #327669;
+      }
+
+      .cls-2 {
+        fill: #295d53;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="follow-up" transform="translate(-337 -273.5)">
+    <g id="Group_275" data-name="Group 275" transform="translate(6 61.5)">
+      <g id="whatsapp" transform="translate(331 212)">
+        <circle id="Ellipse_31" data-name="Ellipse 31" class="cls-1" cx="17" cy="17" r="17"/>
+        <path id="Path_229" data-name="Path 229" class="cls-2" d="M124.194,126.5c-1.2-1.239-7.8-5.567-7.8-5.567s-4.168,2.024-5.18,3.811c-.666,1.175,6.609-1.4,1.608,3.364,1.038.661,6.1,3.334,6.1,3.334s-3.636,2.579-1.133,4.786c-.066,1.057-10.508.572-10.508.572l10.508,8.4a14.481,14.481,0,0,0,2.088.152,14.2,14.2,0,0,0,13.961-11.94Z" transform="translate(-101.24 -111.348)"/>
+      </g>
+    </g>
+    <path id="ic_person_24px" class="cls-3" d="M12,12A4,4,0,1,0,8,8,4,4,0,0,0,12,12Zm0,2c-2.67,0-8,1.34-8,4v2H20V18C20,15.34,14.67,14,12,14Z" transform="translate(339 279)"/>
+    <circle id="ic_brightness_1_24px" class="cls-2" cx="4.5" cy="4.5" r="4.5" transform="translate(353.5 292.234)"/>
+    <circle id="ic_brightness_1_24px-2" data-name="ic_brightness_1_24px" class="cls-3" cx="3.5" cy="3.5" r="3.5" transform="translate(354.5 293.234)"/>
+    <path id="ic_arrow_forward_24px" class="cls-2" d="M6.048,4l-.361.361L7.116,5.792H4V6.3H7.116L5.687,7.735l.361.361L8.1,6.048Z" transform="translate(351.952 290.779)"/>
+  </g>
+</svg>

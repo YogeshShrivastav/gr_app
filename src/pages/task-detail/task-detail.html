@@ -1,0 +1,61 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Task Detail - {{lead_detail.date_created | date:'d MMM y'}}</ion-title>
+	</ion-navbar>	
+</ion-header>
+
+<ion-content padding>
+	
+	<div class="main m16">
+		<div class="one">
+			<h1>Type</h1>
+			<p>{{lead_detail.type_name}}</p> 
+		</div>	
+		<div class="one">
+			<h1>Name</h1>
+			<p>{{lead_detail.type_name == 'Corporate' ? lead_detail.company_name : lead_detail.name }}</p>
+		</div>
+		<div *ngIf="data.type == 'SALES'">
+			<div class="one" (click)="lead_detail.status != 'close' && goOnSalesClosingReport()">
+				<h1>Status</h1>
+				<p>{{lead_detail.status | titlecase}}</p>
+			</div>
+		</div>
+		<div *ngIf="data.type == 'SERVICE'">
+			<div class="one" (click)="lead_detail.status != 'close' && SeeTaskDetailservice()">
+				<h1>Status</h1>
+				<p>{{lead_detail.status | titlecase}}</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="cs-table" *ngIf="data.type == 'SALES'">
+		<table class="mt16">
+			<tr>
+				<th>Product</th>
+				<th class="w70 text-center">Qty.</th>
+				<th class="w70 text-center">Rate</th>
+				<th class="w70 text-center">Amount</th>
+			</tr>
+			<tr *ngFor="let data of product_arr">
+				<td>{{data.product_name}}</td>
+				<td class="w70 text-center">{{data.qty}}</td>
+				<td class="w70 text-center">{{data.rate}}</td>
+				<td class="w70 text-center">{{data.amount}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="cs-table" *ngIf="data.type == 'SERVICE'">
+		<table class="mt16">
+			<tr>
+				<th>Reason of Call</th>
+				<th>Service Type</th>
+			</tr>
+			<tr *ngFor="let data of product_arr">
+				<td>{{data.reason_of_call}}</td>
+				<td>{{data.service_type}}</td>
+			</tr>
+		</table>
+	</div>
+</ion-content>

@@ -1,0 +1,25 @@
+page-add-lead {
+    .add-more
+    {
+        position: relative;
+        h1 
+        {
+            font-size: 16px;
+            margin-left: -32px !important;
+            padding-left: 32px !important;
+            color: #4B494F;
+            letter-spacing: 2px;
+        }
+        .button
+        {
+            position: absolute;
+            right: 0;
+            top: -4px;
+            margin: 0px;
+            padding: 0px;
+            background: none;
+            box-shadow: none;
+            color: #000000;
+        }
+    }
+}

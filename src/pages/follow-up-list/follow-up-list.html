@@ -1,0 +1,49 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Follow Up List</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	
+	<div class="action-btn dflex">
+		<button class="left active" style=" margin-right: -45px; z-index: 2;" round ion-button [ngClass]="{'active':followup_status =='Pending'}" (click)="get_followup_data('Pending')">PENDING <h2 class="counter">{{pending_row}}</h2></button>
+		
+		<button class="right" round ion-button [ngClass]="{'active':followup_status =='Done'}" (click)="get_followup_data('Done')">DONE <h2 class="counter">{{done_row}}</h2></button>
+	</div>
+
+	<div class="nothing-here" *ngIf="show"> 
+		<div class="outer">
+			<div class="innear">
+				<img src="assets/imgs/nothing.svg" alt="">
+				<p>Nothing here yet</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="cs-effect" *ngFor="let data of followup_data">
+		<div class="lead-box {{data.next_followup_type == 'Call' ? 'call' : 'meeting' }}" (click)="SeeFollowupDetail(data.dr_id)" >
+			<div class="o-heading">
+				
+				<div class="call-d dflex "><i class="material-icons">phone</i> <p>{{data.next_followup_type}}</p></div>
+				<div class="meeting-d dflex"><i class="material-icons">email</i> <p>Meeting</p></div>
+				
+				<h1 class="dark-clr line-height"><span>Next Follow Up</span> : {{data.next_followup_date | date:'d MMM, y'}}</h1>
+			</div>
+			<div class="discription">
+				<h2 class="cust-name" *ngIf="data.name">{{data.name | titlecase}}</h2>
+				<h2 class="cust-name" *ngIf="data.company_name">{{data.company_name | titlecase}}</h2>
+				<p class="type">{{data.type_name}}</p>
+				<table>
+					<tr>
+						<td>
+							<p class="dark-clr line-height-22"><strong>Remark</strong> : {{data.remarks | titlecase}}</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	
+</ion-content>

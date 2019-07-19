@@ -1,0 +1,165 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Add Task{{product.valid}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<form #f="ngForm" (ngSubmit)="f.valid && addtask()">
+		<div class="select-leads">
+			<ion-list radio-group name="type_name" [(ngModel)]="task.type_name" required>
+				<ion-item>
+					<ion-label>Sales</ion-label>
+					<ion-radio item-left value="SALES" (click)="change()" ></ion-radio>
+				</ion-item>	
+				
+				<ion-item>
+					<ion-label>Service</ion-label>
+					<ion-radio item-left value="SERVICE" (click)="change()"></ion-radio>
+				</ion-item>
+			</ion-list>
+		</div>
+		
+		<div class="edit">
+			<ion-list>
+				<ion-item>
+					<ion-label floating><span><strong>*</strong> Type</span></ion-label>
+					<ion-select name="lead_type" [(ngModel)]="task.lead_type" (ngModelChange)="getallleads()" required>
+						<ion-option value="Corporate">Corporate</ion-option>
+						<ion-option value="Consumer">Consumer</ion-option>
+					</ion-select>
+				</ion-item>
+				<!-- <div>
+					<p class="error-left">Required</p>
+				</div> -->
+				
+				<ion-item>
+					<ion-label floating><span><strong>*</strong>Lead Name</span></ion-label>
+					<ion-select name="lead_name" [(ngModel)]="task.lead_id" required>
+						<ion-option *ngFor="let row of all_lead" value="{{row.id}}">{{task.lead_type == 'Corporate'? row.company_name : row.name}}</ion-option>
+					</ion-select>
+				</ion-item>
+			</ion-list>
+			<ion-list *ngIf="task.type_name == 'SALES'">
+				<div class="add-more mt16">
+					<h1>Add Product Detail</h1>
+					<button ion-button  (click)="add_product()" [disabled]="!product || !product.qty || !product.rate" ><i class="material-icons">add</i></button>
+				</div>			
+				<ion-item>
+					<ion-label>Product</ion-label>
+					<ionic-selectable
+						item-content
+						name="product"												
+						[items]="product_list"						
+						itemTextField="product_name"
+						[canSearch]="true"
+						[(ngModel)]="product"
+						[disabled]="!task.lead_id"
+						(onChange)="portChange($event)">
+					</ionic-selectable>
+				</ion-item>
+				<div class="dflex">
+					
+					<ion-item class="mr8">
+						<ion-label floating><span><strong>*</strong>QTY</span></ion-label>
+						<ion-input type="number" name="qty" (input)="calculate()" [(ngModel)]="product.qty"></ion-input>
+					</ion-item>
+					
+					<ion-item class="mr8">
+						<ion-label floating><span><strong>*</strong>Rate</span></ion-label>
+						<ion-input type="number" name="rate" (input)="calculate()"  [(ngModel)]="product.rate"></ion-input> 
+					</ion-item>
+					<ion-item>
+						<ion-label floating><span>Amount</span></ion-label>
+						<ion-input type="number" name="amount" [(ngModel)]="product.amount"></ion-input> 
+					</ion-item>
+				</div>
+				
+				<ion-item>
+					<ion-label floating><span>Remarks</span></ion-label>
+					<ion-input type="text" name="remarks"  [(ngModel)]="product.remarks"></ion-input> 
+				</ion-item>			
+			</ion-list>
+			
+			<ion-list *ngIf="task.type_name == 'SERVICE'">
+				<div class="add-more mt16">
+					<h1>Add Reason</h1>
+					<button ion-button [disabled]="!product.reason_of_call" (click)="add_product()"><i class="material-icons">add</i></button>
+				</div>
+				<ion-item>
+					<ion-label floating><span>Reason of Call</span></ion-label>
+					<ion-input type="text" name="reason_of_call" [(ngModel)]="product.reason_of_call"></ion-input> 
+				</ion-item>
+				<div class="add-more mt16"></div>
+				<ion-item>
+					<ion-label>Service Type</ion-label>
+					<ionic-selectable
+						item-content
+						name="service_type"												
+						[items]="service_type_list"						
+						itemTextField="type_name"
+						[canSearch]="true"
+						[(ngModel)]="service_type"						
+						(onChange)="portChange($event)">
+					</ionic-selectable>
+				</ion-item>				
+			</ion-list>		
+		</div>
+		
+		<div class="cs-effect" *ngIf="product_arr.length >0 && task.type_name == 'SALES'">
+			<div class="lead-box" *ngFor="let data of product_arr;let i=index;" >
+				<div class="discription">
+					<h2 class="cust-name">{{data.product_name}}</h2>
+					<p class="type"  (click)="remove_arr(product_arr,i)">Delete</p>
+					<table>
+						<tr>
+							<td class="rborder-none" >
+								<p>QTY</p>
+								<p>{{data.qty}}</p>
+							</td>
+							<td>
+								<p>Rate</p> 
+								<a>{{data.rate}}</a>
+							</td>
+							<td>
+								<p>Amount</p>
+								<a>{{data.amount}}</a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<p>Remarks</p>
+								<a>{{data.remarks}}</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="cs-table" *ngIf="product_arr.length >0 && task.type_name == 'SERVICE'">
+			<table class="mt16">
+				<tr>
+					<th>Reason of Call</th>
+					<th>Service type</th>
+					<th class="w50">Action</th>
+				</tr>
+				<tr *ngFor="let data of product_arr;let i=index">
+					<td >{{data.reason_of_call | titlecase}}</td>
+					<td >{{data.service_type | titlecase}}</td>
+					<td class="w50" >	
+						<a class="action-icon" (click)="remove_arr(product_arr,i)"><i class="material-icons">delete_sweep</i></a>		
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="cs-btn m32">
+			<button type="submit" [disabled]="product_arr.length == 0 || f.invalid " ion-button block round name="Submit">Submit</button>
+		</div>
+		
+		<!-- <div class="cs-btn mt16">
+			<button type="submit" ion-button block round name="Submit">Update</button>
+		</div> -->
+	</form>
+	
+</ion-content>

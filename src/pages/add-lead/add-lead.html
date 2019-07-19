@@ -1,0 +1,200 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{edit_lead == undefined ? 'Add Lead' : 'Update Lead'}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+		
+		<div class="select-leads" *ngIf="edit_lead == undefined">
+			<ion-list radio-group name="lead_type" [(ngModel)]="data.lead_type">
+				<ion-item>
+					<ion-label>Consumer</ion-label>
+					<ion-radio item-left value="Consumer"></ion-radio>
+				</ion-item>	
+				
+				<ion-item>
+					<ion-label>Corporate</ion-label>
+					<ion-radio item-left value="Corporate"></ion-radio>
+				</ion-item>
+			</ion-list>
+		</div>
+		
+		<div class="edit">	
+			<ion-list>
+				<div *ngIf="data.lead_type=='Consumer'">
+				<ion-item>			
+					<ion-label floating><span><strong>*</strong> Name</span></ion-label>
+					<ion-input type="text" name="lead_name" [(ngModel)]="data.lead_name" #lead_name="ngModel" [ngClass]="{'is-invalid':f.submitted && lead_name?.invalid}" required></ion-input>
+				</ion-item>
+				<div *ngIf="lead_name?.touched && lead_name?.invalid" > 
+					<p class="error-left" *ngIf="lead_name.errors.required">Required</p>
+				</div>
+			</div>
+				<div *ngIf="data.lead_type=='Corporate'"> 
+				<ion-item >			
+						<ion-label floating><span><strong>*</strong> Company Name</span></ion-label>
+						<ion-input type="text" name="lead_name" [(ngModel)]="data.lead_name" #lead_name="ngModel" [ngClass]="{'is-invalid':f.submitted && lead_name?.invalid}" required></ion-input>
+					</ion-item>
+					<div *ngIf="lead_name?.touched && lead_name?.invalid" > 
+						<p class="error-left" *ngIf="lead_name.errors.required">Required</p>
+					</div>
+				</div>
+				
+				<ion-item>
+					<ion-label floating><span><strong>*</strong> Mobile No.</span></ion-label>
+					<ion-input type="tel" name="mobile_no" [(ngModel)]="data.mobile_no" #mobile_no="ngModel" [ngClass]="{'is-invalid':f.submitted && mobile_no?.invalid}" required minlength="10" maxlength="10"></ion-input>
+				</ion-item>
+				<div *ngIf="mobile_no?.touched && mobile_no?.invalid">
+					<p class="error-left" *ngIf="mobile_no.errors.required">Mobile Number is required</p>
+					<p class="error-left" *ngIf="mobile_no.errors.minlength">Mobile Number must be Minimum 10 character</p>
+					<p class="error-left" *ngIf="mobile_no.errors.maxlength">Mobile Number must be Maximum 10 character</p>
+				</div>
+				
+				<ion-item>
+					<ion-label floating><span>Email-Id</span></ion-label>
+					<ion-input type="email" name="email" [(ngModel)]="data.email" [required]="(data.email?.length>=0 && data.email?.length) ? true : false" #email="ngModel" [email]="(data.email?.length>=0 && data.email?.length) ? 'true' : 'false'"></ion-input>
+				</ion-item>
+				<div *ngIf="email?.touched && email?.invalid"> 
+					<p class="error-left" *ngIf="email.errors.email">Email must be valid email address</p>
+				</div>
+				
+				<ion-item>
+					<ion-label floating><span><strong>*</strong> Select Source</span></ion-label>
+					<ion-select name="source" [(ngModel)]="data.source" #source="ngModel" [ngClass]="{'is-invalid':f.submitted && source?.invalid}" required>
+						<ion-option value="Direct">Direct</ion-option>
+						<ion-option value="Social">Social</ion-option>
+						<ion-option value="Referral">Referral</ion-option>
+					</ion-select>
+				</ion-item>
+				<div *ngIf="source?.touched && source?.invalid">
+					<p class="error-left" *ngIf="source.errors.required">Source is required</p>
+				</div>
+				
+				<ion-item>
+					<ion-label floating><span>Street</span></ion-label>
+					<ion-input type="text" name="address" [(ngModel)]="data.address" #address="ngModel"></ion-input> 
+				</ion-item>
+				
+			</ion-list>
+		</div>
+		
+		<div class="drop-down"> 
+			<ion-item >
+				<ion-label>State</ion-label>
+				<ionic-selectable
+				item-content 
+				[(ngModel)]="temp_data.state"
+				[items]="state_data"
+				itemValueField="state_name"
+				itemTextField="state_name"
+				name="state"
+				(onChange)="state()"
+				[canSearch]="true">
+			</ionic-selectable>
+		</ion-item>
+	</div>
+	
+	<div class="drop-down">
+		<ion-item >
+			<ion-label>District</ion-label>
+			<ionic-selectable
+			item-content 
+			[(ngModel)]="temp_data.district"
+			[items]="district_data"
+			itemValueField="district_name"
+			itemTextField="district_name"
+			name="district"
+			(onChange)="district()"
+			[canSearch]="true">
+		</ionic-selectable>
+	</ion-item>
+</div>
+
+<div class="drop-down">
+	<ion-item >
+		<ion-label>City</ion-label>
+		<ionic-selectable
+		item-content 
+		[(ngModel)]="temp_data.city"
+		[items]="city_data"
+		itemValueField="city"
+		itemTextField="city"
+		name="city"
+		[canSearch]="true">
+	</ionic-selectable>
+</ion-item>
+</div>
+
+<div class="edit">	
+	<ion-list>
+		<ion-item>
+			<ion-label floating><span>Pincode</span></ion-label>
+			<ion-input type="tel" name="pincode" [(ngModel)]="data.pincode" #pincode="ngModel" [ngClass]="{'is-invalid':f.submitted && pincode?.invalid}"  minlength="6" maxlength="6"></ion-input> 
+		</ion-item>
+		<div *ngIf="pincode?.touched && pincode?.invalid">
+			<p class="error-left" *ngIf="pincode.errors.minlength">Pincode must be Minimum 6 character</p>
+			<p class="error-left" *ngIf="pincode.errors.maxlength">Pincode must be Maximum 6 character</p>
+		</div>
+	</ion-list>
+</div>
+
+<div class="edit" *ngIf="data.lead_type == 'Corporate'">	
+<ion-list >
+	<div class="add-more mt16">
+		<h1>Contact Person</h1>
+		<button ion-button (click)="add_cp()" [disabled]="(!form.username) || (!form.cp_mobile_no_1)"><i class="material-icons">add</i></button>
+	</div>
+	
+	<ion-item>
+		<ion-label floating><span><strong>*</strong> Name</span></ion-label>
+		<ion-input type="text" name="username" [(ngModel)]="form.username"></ion-input>
+	</ion-item>
+	<!-- <div *ngIf="username?.touched && username?.invalid" > 
+			<p class="error-left" *ngIf="username.errors.required">Required</p>
+		</div> -->
+	
+	<ion-item>
+		<ion-label floating><span><strong>*</strong> Mobile No. 1</span></ion-label>
+		<ion-input type="tel" name="cp_mobile_no_1" [(ngModel)]="form.cp_mobile_no_1" [ngClass]="{'is-invalid':cp_mobile_no_1?.invalid}" minlength="10" maxlength="10"></ion-input>
+	</ion-item>
+	<div *ngIf="cp_mobile_no_1?.touched && cp_mobile_no_1?.invalid">
+		<p class="error-left" *ngIf="cp_mobile_no_1.errors.minlength">Mobile Number must be Minimum 10 character</p>
+		<p class="error-left" *ngIf="cp_mobile_no_1.errors.maxlength">Mobile Number must be Maximum 10 character</p>
+	</div>
+	
+	<ion-item>
+		<ion-label floating><span>Mobile No. 2</span></ion-label>
+		<ion-input name="cp_mobile_no_2" [(ngModel)]="form.cp_mobile_no_2" type="tel" minlength="10" maxlength="10" [ngClass]="{'is-invalid':cp_mobile_no_2?.invalid}"></ion-input>
+	</ion-item>
+	<div *ngIf="cp_mobile_no_2?.touched && cp_mobile_no_2?.invalid">
+		<p class="error-left" *ngIf="cp_mobile_no_2.errors.minlength">Mobile Number must be Minimum 10 character</p>
+		<p class="error-left" *ngIf="cp_mobile_no_2.errors.maxlength">Mobile Number must be Maximum 10 character</p>
+	</div> 
+</ion-list> 
+</div>
+
+
+<div class="cs-table m16" *ngIf="data.lead_type=='Corporate' && cp_person['length']">
+	<table class="mt16">
+		<tr>
+			<th class="w100">Name</th>
+			<th class="w100">Mobile no 1</th>
+			<th class="w100">Mobile no 2</th>
+		</tr>
+		<tr *ngFor="let cp_data of cp_person">
+			<td>{{cp_data.username}}</td>
+			<td>{{cp_data.cp_mobile_no_1}}</td>
+			<td>{{cp_data.cp_mobile_no_2}}</td>
+		</tr>
+	</table>
+</div>
+
+<div class="cs-btn m16">
+	<button type="submit" ion-button block round name="Submit">{{edit_lead == undefined ? 'Submit' : 'Update'}}</button>
+</div>
+
+</form>
+
+</ion-content>

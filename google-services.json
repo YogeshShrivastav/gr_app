@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "504540252840",
+    "firebase_url": "https://gr-industries007.firebaseio.com",
+    "project_id": "gr-industries007",
+    "storage_bucket": "gr-industries007.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504540252840:android:b3dba38e3b430213",
+        "android_client_info": {
+          "package_name": "com.abacusdesk.gr_industries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504540252840-fm2ur5h7s65ue1fd252hbgrpen2dfa69.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhlZiThT_HCdPzixiiC2pmI29Et70vNKk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

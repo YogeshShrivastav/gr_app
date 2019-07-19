@@ -1,0 +1,85 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{lead_detail_data.type_name}} Lead Detail</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	
+	<div class="main m16">
+		<div class="one" *ngIf="lead_detail_data.name!=''">
+			<h1>Name</h1>
+			<p>{{lead_detail_data.name | titlecase}}</p> 
+		</div>
+		<div class="one" *ngIf="lead_detail_data.company_name!=''">
+			<h1>Company Name</h1>
+			<p>{{lead_detail_data.company_name | titlecase}}</p> 
+		</div>
+		<div class="one" *ngIf="lead_detail_data.email">
+			<h1>Email-ID</h1>
+			<a [href]="'mailto:'+ lead_detail_data.email + '?Subject=My%20Custom%20Subject'">{{lead_detail_data.email}}</a>
+		</div>
+		<div class="one">
+			<h1>Mobile No.</h1>
+			<a href="tel:{{lead_detail_data.mobile}}">{{lead_detail_data.mobile}}</a>
+		</div>
+		<div class="one" *ngIf="lead_detail_data.address">
+			<h1>Street</h1>
+			<p>{{lead_detail_data.address | titlecase}}</p>
+		</div>
+		
+		<div class="dflex"> 
+			<div class="one rborder-none" *ngIf="lead_detail_data.state">
+				<h1>State</h1>
+				<p>{{lead_detail_data.state | titlecase}}</p>
+			</div>
+			
+			<div class="one" *ngIf="lead_detail_data.district">
+				<h1>District</h1>
+				<p>{{lead_detail_data.district | titlecase}}</p>
+			</div>
+		</div>
+		<div class="one" *ngIf="lead_detail_data.city">
+			<h1>City</h1>
+			<p>{{lead_detail_data.city | titlecase}}</p>
+		</div>
+		<div class="one" *ngIf="lead_detail_data.pincode">
+			<h1>Pin Code</h1>
+			<p>{{lead_detail_data.pincode}}</p>
+		</div>
+		<div class="one">
+			<h1>Source</h1>
+			<p>{{lead_detail_data.source | titlecase}}</p>           
+		</div>
+	</div>
+	
+	 <div class="cs-table" *ngIf="lead_detail_data.type_name == 'Corporate'">
+		<div class="cs-heading">Contact Person</div>
+		<table class="mt16 mb16">
+			<tr>
+				<th>Name</th>
+				<th class="w100">Mobile No 1</th>
+				<th class="w100">Mobile No 2</th>
+			</tr>
+			<tr *ngFor="let data of cont_pr_data">
+				<td>{{data.contact_person}}</td>
+				<td>{{data.mobile_1}}</td>
+				<td>{{data.mobile_2}}</td>
+			</tr>
+		</table>
+	</div>
+	
+</ion-content>
+
+<div class="cs-icon-btn">
+
+	<button ion-button outline (click)="CreateFollowup(lead_detail_data.id)" >
+        <img src="assets/imgs/svg-imgs/follow-up.svg" alt="">
+    </button>
+
+    <button ion-button outline (click)="EditLeads(lead_detail_data.id)" >
+        <img src="assets/imgs/svg-imgs/edit-ic.svg" alt="">
+	</button>
+	
+
+</div>

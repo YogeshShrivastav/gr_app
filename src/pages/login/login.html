@@ -1,0 +1,44 @@
+<ion-content>
+	<div class="logo">
+		<div class="outer">
+			<div class="innear">
+				<img src="assets/imgs/svg-imgs/main-logo.png" alt=""> 
+			</div>
+		</div>
+	</div> 
+	
+	<div class="infomation">
+		<h1>Login</h1>
+		<p>Enter your mobile number to verify </p>
+	</div>
+		<div class="mobile-no">
+			<ion-item>
+				<ion-label><img class="default-ic"  src="assets/imgs/svg-imgs/user-ic.svg" alt=""><img class="active-ic" src="assets/imgs/svg-imgs/user-ic-active.svg" alt=""></ion-label>
+				<ion-input type="text" placeholder="User Name"  name="username" [(ngModel)]="data.username"></ion-input>
+			</ion-item>
+			
+			<div *ngIf="login_mobile.invalid">
+				<p class="error-left" *ngIf="login_mobile.errors.required">Mobile Number is required</p>
+				<p class="error-left" *ngIf="login_mobile.errors.minlength">Mobile no should be of 10 digits only</p>
+				<p class="error-left" *ngIf="login_mobile.errors.maxlength">Mobile no should be of 10 digits only</p>
+			</div>
+		</div>
+
+		<div class="mobile-no">
+			<ion-item>
+				<ion-label><img class="default-ic"  src="assets/imgs/svg-imgs/password-ic.svg" alt=""><img class="active-ic" src="assets/imgs/svg-imgs/password-ic-active.svg" alt=""></ion-label>
+				<ion-input placeholder="Password" type="password" name="password" [(ngModel)]="data.password" ></ion-input>
+			</ion-item>
+			
+			<div *ngIf="login_mobile.invalid">
+				<p class="error-left" *ngIf="login_mobile.errors.required">Mobile Number is required</p>
+				<p class="error-left" *ngIf="login_mobile.errors.minlength">Mobile no should be of 10 digits only</p>
+				<p class="error-left" *ngIf="login_mobile.errors.maxlength">Mobile no should be of 10 digits only</p>
+			</div>
+		</div>
+		<!-- [ngClass]="{active:login_mobile.length == '10'}" -->
+		<div class="login-btn active"  >
+				<!-- [disabled]="login_mobile.length!=10"  -->
+			<button class="able" type="submit"  outline ion-button round block color="theme" name="Submit" (click)="SeeHome()">CONTINUE</button>
+		</div>
+</ion-content>

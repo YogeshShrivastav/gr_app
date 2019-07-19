@@ -1,0 +1,1803 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+primary:    #488aff,
+secondary:  #32db64,
+danger:     #f53d3d,
+light:      #f4f4f4,
+dark:       #222,
+theme:      #327669
+);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+
+
+@import "http://fonts.googleapis.com/icon?family=Material+Icons";
+
+
+
+
+$theme           :     #327669;
+$light-green     :     #ecfaff;
+$light-font      :     #cccccc;
+$border          :     #DCDCDC;
+
+$family         :  'Open Sans', sans-serif;
+$font-lightt    :  300;
+$font-regular   :  400;
+$font-semibold  :  600;
+$font-bold      :  700;
+$font-extrabold :  800;
+
+*
+{
+  font-family: $family;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li{margin:0px !important; padding: 0px !important;}
+
+.light {
+  font-family: $family !important;
+  font-weight: $font-lightt !important;
+}
+
+.regular {
+  font-family: $family !important;
+  font-weight: $font-regular !important;
+}
+
+.semibold {
+  font-family: $family !important;
+  font-weight: $font-semibold !important;
+}
+
+.bold {
+  font-family: $family !important;
+  font-weight: $font-bold !important;
+}
+
+.extrabold {
+  font-family: $family !important;
+  font-weight: $font-extrabold !important;
+}
+
+.dark-clr
+{
+  color: #333333 !important;
+}
+
+.line-height
+{
+  line-height: 24px;
+}
+
+.line-height-22
+{
+  line-height: 22px;
+}
+
+
+$base-color: #ddd;
+$shine-color: #e8e8e8;
+$animation-duration: 1.6s;
+$avatar-offset: 52 + 16;
+
+@mixin background-gradient{
+  background-image: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
+  background-size: 600px;
+}
+
+
+@keyframes shine-lines
+{
+  0%{background-position: -100px}
+  
+  40%, 100%{background-position: 140px}
+}
+
+@keyframes shine-avatar
+{
+  
+  0%{background-position: -100px + $avatar-offset}
+  
+  40%, 100%{background-position: 140px + $avatar-offset}
+}
+
+.ul-clear
+{
+  &:after
+  {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+ion-header
+{
+  ion-navbar
+  {
+    .back-button-icon 
+    {
+      font-size: 21px;
+      color: #fff;
+    }
+  }
+  
+}
+
+.notifications
+{
+  position: relative;
+  margin-right: 10px;
+  
+  ion-icon
+  {
+    color: #fff;
+    font-size: 22px !important;
+  }
+  .number
+  {
+    position: absolute;
+    border: 1px solid $theme;
+    background: #fff;
+    color: $theme;
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    line-height: 13px;
+    top: 3px;
+    right: 5px;
+  }
+}
+
+ion-header
+{
+  .toolbar-background
+  {
+    background: $theme !important;
+    margin: 0;
+  }
+  
+  .toolbar-title
+  {
+    @extend.regular;
+    font-size: 18px;
+    color: #ffffff;
+  }
+  span
+  {
+    @extend.regular;
+    font-size: 16px;
+    color: #fff;
+  }
+}
+
+.outer
+{
+  display: table;
+  width: 100%;
+  height: 100%;
+  
+  .innear
+  {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
+ion-tabs
+{
+  .tabbar
+  {
+    height: 50px !important;
+    a.tab-button
+    {
+      ion-icon
+      {
+        font-size: 20px;
+      }
+      
+      span
+      {
+        font-size: 10px;
+        transition: 0.3s linear;
+        letter-spacing: 0.40px;
+        transform: scale(1,1) !important;
+      }
+      
+      &[aria-selected=true]
+      {
+        border-bottom: solid 3px $theme;
+        
+        ion-icon
+        {
+          color: $theme !important;
+        }
+        
+        span
+        {
+          color: $theme;
+          font-size: 10px;
+          @extend.semibold;
+          transition: 0.3s linear;
+        }
+      }
+    }
+  }
+}
+
+.logo
+{
+  height: 40vh;
+  img
+  {
+    width: 70%;
+  }
+}
+
+.infomation
+{
+  text-align: center;
+  margin: 10px 32px;
+  h1
+  {
+    @extend.regular;
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+  p
+  {
+    padding-top: 16px !important;
+    @extend.regular;
+    font-size: 14px;
+    line-height: 25px;
+    span
+    {
+      color: #0044FF;
+    }
+  }
+}
+
+.mobile-no
+{
+  position: relative;
+  margin: 32px 32px 0px 32px;
+  ion-item
+  {
+    min-height: 50px;
+    padding-left: 0px !important;
+    .item-inner 
+    {
+      border: 1px solid #dedede !important;
+      border-radius: 50px;
+      padding-right: 8px;
+      box-shadow: inherit !important;
+      ion-label
+      {
+        margin-top: 15px; 
+        img
+        {
+          height: 20px;
+          width: 20px;
+          margin: 0px 0px 0px 16px;
+        }
+        .default-ic{ display: block; }
+        .active-ic{ display: none; }
+      }
+      ion-input
+      {
+        font-size: 14px;
+      }
+    }
+    &.item-input-has-focus
+    {
+      .item-inner 
+      {
+        border: 1px solid #327669 !important;
+        ion-label
+        {
+          .default-ic{ display: none; }
+          .active-ic{ display: block; }
+        }
+      }
+    }
+  }
+}
+
+.login-btn
+{
+  margin: 32px;
+  button
+  {
+    height: 50px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    opacity: 0.8 !important;
+  }
+  
+  &.active
+  {
+    button, .activated
+    {
+      background: #03ac13;
+      border: #03ac13 !important;
+      color: #ffffff;
+    }
+  }
+}
+
+.cs-super-tabs
+{
+  box-shadow: 0px 3px 6px -3px #ccc;
+  button
+  {
+    background: $light-green !important;
+    color: $theme;
+    width: 100%;
+    margin: 0px;
+    height: 48px;
+    border-radius: 0px;
+    box-shadow: inherit;
+    span
+    {
+      font-size: 13px;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      strong
+      {
+        background: $theme;
+        color: #fff;
+        border-radius: 50px;
+        padding: 5px;
+        margin-left: 5px;
+        height: 20px;
+        line-height: 11px;
+        padding-left: 6px;
+      }
+    }
+  }
+  .active
+  {
+    border-bottom: 2px solid $theme;
+  }
+}
+.cs-effect
+{
+  
+  .lead-box
+{
+    padding: 10px 16px;
+    margin-bottom: 16px !important;
+    box-shadow: 0px 3px 6px #00000046 !important;
+    background: #fff;
+    .heading, .o-heading
+{
+      border-bottom: 1px solid #dcdcdc;
+      padding-bottom: 10px;
+      display: flex;
+      
+      .call-d, .meeting-d
+{
+        font-size: 14px;
+        @extend.regular;
+        line-height: 24px;
+        .material-icons
+{
+          position: absolute;
+          font-size: 22px;
+          padding-right: 10px;
+}
+        p{ padding-left: 29px !important; }
+}
+      .call-d{ color: #00b600; }
+      .meeting-d{ color: #f70000; }
+      
+      p
+{
+        font-size: 14px;
+        @extend.regular;
+        width: 100%;
+}
+      h1
+{
+        text-align: right;
+        color: $light-font;
+        font-size: 12px;
+        @extend.regular;
+        width: 100%;
+        letter-spacing: 1px;
+        position: relative;
+        .material-icons
+{
+          font-size: 16px;
+          position: absolute;
+          right: 75px;
+          top: -1px;
+}
+        span
+{
+          color: #ccc;
+}
+}
+}
+    .discription
+{
+      position: relative;
+      h1,h2,a
+{
+        font-size: 12px;
+        @extend.regular;
+        letter-spacing: 1px;
+        padding-top: 10px !important;
+}
+      .cust-name
+{
+        font-size: 14px;
+        color: #0059f6;
+        line-height: 24px;
+}
+      .type 
+{
+        font-size: 14px;
+        position: absolute;
+        top: 10px;
+        right: -16px;
+        background: #f2f2f2;
+        border-radius: 50px 0px 0px 50px;
+        padding: 5px 10px !important;
+}
+      table
+{
+        width: 100%;
+        table-layout: fixed;
+        margin-top: 13px;
+        tr
+{
+          td
+{
+            border: 1px solid #B5B5B5;
+            padding: 10px;
+            p:nth-child(1)
+{
+              font-size: 12px;
+              @extend.regular;
+              color: $light-font;
+}
+            p:nth-child(2)
+{
+              font-size: 12px;
+              @extend.regular;
+              padding-top: 5px !important;
+              letter-spacing: 1px;
+}
+            a
+{
+              color: #000;
+              font-size: 12px;
+              @extend.regular;
+              padding-top: 5px !important;
+              letter-spacing: 1px;
+              text-decoration: none;
+              white-space: pre-line;
+}
+}
+}
+}
+}
+    &.open, &.call
+{
+      border-top: 3px solid #00b600;
+      .o-heading
+{
+        .status{ color: #00b600;}
+        .call-d{ display: block !important; }
+        .meeting-d{ display: none !important; }
+}
+      .discription
+{
+        table
+{
+          tr
+{
+            td:nth-child(1)
+{
+              p:nth-child(2)
+{
+                color: #00b600;
+}
+}
+}
+}
+}
+}
+    &.close, &.meeting
+{
+      border-top: 3px solid #f70000;
+      .o-heading
+{
+        .status{ color: #f70000;}
+        .call-d{ display: none !important; }
+        .meeting-d{ display: block !important; }
+}
+      .discription
+{
+        table
+{
+          tr
+{
+            td:nth-child(1)
+{
+              p:nth-child(2)
+{
+                color: #f70000;
+}
+}
+}
+}
+}
+}
+}
+}
+
+
+.edit
+{
+  margin: 0px 16px;
+  h1
+  {
+    color: #ccc;
+    font-size: 18px;
+    @extend.semibold;
+    padding-top: 10px !important;
+  }
+  
+  ion-list
+  {
+    margin: 0px; 
+    ion-item
+    {
+      background: none !important;
+      border: none !important;
+      padding: 0px;
+      
+      .item-inner
+      {
+        padding-right: 0px !important;
+        border: none !important;
+        
+        .label[floating], .label-ios[floating]
+        {
+          // margin-bottom: -7px;
+          // padding-left: 5px;
+          font-size: 15px;
+          color: #000;
+          // transform: translate3d(0, 8px, 0);
+          padding-left: 10px;
+          span
+          {
+            background: #fff;
+            padding: 0px 5px;
+            strong
+            {
+              color: red;
+            }
+          }
+        }
+        
+        ion-input,
+        ion-textarea,
+        ion-datetime
+        {
+          color: #000000;
+          border: 1px solid #565656;
+          font-size: 13px;
+          height: 40px;
+          .text-input
+          {
+            padding-left: 8px;
+            margin-top: 12px;
+          }
+          .datetime-text
+          {
+            padding-left: 8px;
+          }
+        }
+        
+        ion-select
+        {
+          color: #000000;
+          border: 1px solid #565656;
+          font-size: 13px;
+          padding-left: 8px;
+          height: 40px;
+          padding-top: 12px;
+        }
+      }
+    }
+    .item-input-has-focus
+    {
+      .item-inner
+      {
+        .label[floating], .label-ios[floating]
+        {
+          margin-bottom: -7px;
+        }
+      }
+    }
+  }
+  
+  .item-input-has-focus .label-md[floating],
+  .input-has-focus .label-md[floating],
+  .item-input-has-value .label-md[floating],
+  .input-has-value .label-md[floating]
+  {
+    transform: translate3d(0, 11px, 0) scale(0.8) !important;
+  }
+}
+
+.select-leads
+{
+  margin: 0px 16px;
+  ion-list
+  {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0px !important;
+    .item
+    {
+      background: none !important;
+      font-size: 14px;
+      color: $theme;
+      padding-left: 0px;
+      height: 20px;
+      min-height: 20px;
+      .item-inner
+      {
+        border: inherit;
+      }
+      
+      ion-label 
+      {
+        color: #000;
+        margin: 0px;
+        
+        .lable
+        {
+          color: #000;
+          background: none !important;                            
+        }
+      }
+      
+      .radio
+      {
+        margin:11px 16px 10px 0px;
+        
+        .radio-icon
+        {
+          border-color: $theme;
+          width: 16px;
+          height: 16px;
+          
+          .radio-inner
+          {
+            background-color: $theme;
+            width: 8px;
+            height: 8px;
+          }
+        }
+      }
+      
+    }
+  }               
+}
+
+.cs-btn
+{
+  button
+  {
+    background: $theme !important;
+    font-size: 14px;
+    height: 40px;
+    letter-spacing: 2px;
+  }
+}
+
+.one
+{
+  width: 100%;
+  letter-spacing: 2px;
+  padding: 10px;
+  margin-bottom: 32px;
+  border: 1px solid $border;
+  background: #ffffff;
+  position: relative;
+  h1
+  {
+    font-size: 12px;
+    color: #9e9e9e;
+    @extend.regular;
+    padding: 0px 5px !important;
+    position: absolute;
+    top: -8px;
+    background: #ffffff;
+  }
+  p
+  {
+    font-size: 14px;
+    @extend.regular;
+    margin-right: 16px !important;
+    line-height: 22px;
+  }
+  a{ text-decoration: underline; font-size: 14px; }
+}
+
+.all-inputs
+{
+  margin: 0px 16px;
+  ion-item
+  {
+    border: 1px solid #000000;
+    min-height: 40px;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 16px;
+    position: relative;
+    padding-left: 10px;
+    .item-inner
+    { 
+      border-bottom: none;
+      box-shadow: inherit !important;
+    }
+    ion-label
+    {
+      letter-spacing: 1px;
+      color: #000000 !important;
+      font-size: 14px;
+      .material-icons
+      {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        font-size: 19px;
+      }
+    }
+    .datetime-text 
+    {
+      font-size: 14px;
+      letter-spacing: 2px;
+      padding-right: 10px;
+    }
+  }
+  .discription
+  {
+    border: 1px solid #000000;
+    height: 60px;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 16px;
+    line-height: 20px;
+    padding: 10px 5px;
+    letter-spacing: 1px;
+  }
+}
+
+.contact-us
+{
+  background: #808080;
+  .background
+  {
+    background: #808080;
+    iframe
+    {
+      height: 93vh;
+      width: 100%;
+      .login-control
+      {
+        display: none !important;
+      }
+    }
+  }
+  
+  .contact-info
+  {
+    margin: 16px;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 16px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    text-align-last: left;
+    box-shadow: 0px 3px 26px 0px rgba(0, 0, 0, 0.3);
+    .dflex , .cs-dflex
+    {
+      padding-top: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaeaea;
+      img
+      {
+        height: 20px;
+        margin: 2px 16px 0px 0px !important;
+        line-height: 26px;
+      }
+      p
+      {
+        color: #808080;
+        font-size: 14px;
+        padding-right: 16px !important;
+        line-height: 24px;
+        @extend.regular;
+        span
+        {
+          color: #bbbbbb;
+          font-size: 14px;
+          letter-spacing: 1px;
+          line-height: 26px;
+          @extend.light;
+        }
+      }
+      .mobile
+      {
+        a
+        {
+          font-size: 12px;
+          color: #000000;
+          span
+          {
+            color: #bbbbbb;
+            font-size: 10px;
+            letter-spacing: 1px;
+            line-height: 26px;
+            @extend.light;
+          }
+        }
+      }
+      a
+      {
+        text-decoration: none;
+        font-size: 14px;
+      }
+    }
+    .dflex:last-child{border-bottom: none;}
+  }
+}
+
+.action-btn
+{
+  border-radius: 50px;
+  // overflow: hidden;
+  margin: 16px;
+  button, .activated
+  {
+    height: 30px;
+    width: 100%;
+    margin: 0px;
+    background: $light-green;
+    color: $theme;
+    span
+    {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+    .counter
+    {
+      height: 24px;
+      /* width: 30px; */
+      padding: 0px 6px 0px 8px !important;
+      border-radius: 100px;
+      position: absolute;
+      right: 5px;
+      margin-left: 20px !important;
+      line-height: 24px;
+      font-size: 15px;
+      text-align: center;
+      @extend.semibold;
+      background: $theme; color: #fff;
+    }
+  }
+  
+  .active
+  {
+    background: $theme;
+    color: #fff;
+    .counter
+    {
+      background: #fff; color: $theme;
+    }
+  }
+}
+
+.add-more
+{
+  position: relative;
+  h1 
+  {
+    font-size: 16px;
+    margin-left: -32px !important;
+    padding-left: 32px !important;
+    color: #4B494F;
+    letter-spacing: 2px;
+  }
+  .button
+  {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    background: none;
+    box-shadow: none;
+    color: #000000;
+  }
+}
+
+.logout-btn
+{
+  position: relative;
+  margin-right: 10px !important;
+  
+  ion-icon
+  {
+    color: #327669 !important;
+    font-size: 22px !important;
+  }
+}
+
+.cs-table
+{
+  table
+  {
+    table-layout: fixed;
+    width: 100%;
+    tr
+    {
+      @extend.regular;
+      text-align: left;
+      th
+      {
+        background: $theme;
+        color: #fff;
+        font-size: 14px;
+        padding: 5px 0px 5px 10px;
+      }
+      td
+      {
+        color: #333;
+        font-size: 12px;
+        padding: 10px;
+        border: 1px solid $border;
+      }
+    }
+  }
+}
+
+.cs-heading
+{
+  // height: 40px;
+  background: #d1d1d1;
+  padding: 10px 16px;
+  margin: 16px -16px;
+  text-transform: capitalize;
+  color: #0d362e;
+  @extend.semibold;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.margin-32
+{
+  margin: 0px -32px;
+}
+
+table
+{
+  table-layout: fixed;
+  width: 100%;
+}
+
+.text-center
+{
+  text-align: center !important;
+}
+
+.cs-icon-btn
+{
+  position: absolute;
+  top: 70px;
+  right: 4px;
+  width: 66px;
+  z-index: 10;
+  // position: relative;
+  button, .cs-a
+  {
+    border-color: #707070;
+    background: #ffffff;
+    width: 76px;
+    height: 43px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin: 0px -16px 16px 0px;
+    img
+    {
+      height: 50px;
+      max-width: 37px;
+      margin-left: -30px;
+    }
+  }
+  .cs-a
+  {
+    border: 1px solid #707070;
+    img
+    {
+      margin-left: 4px;
+      margin-top: -4px;
+    }
+  }
+}
+
+.drop-down
+{
+  padding: 32px 16px 0px 16px;
+  width: 100%;
+  p
+  {
+    background: #fff;
+    line-height: 20px;
+  }
+  ion-item
+  {
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    border: 1px solid #000000 !important;
+    box-shadow: none !important;
+    letter-spacing: 1px;
+    @extend.regular;
+    min-height: 0px !important;
+    .item-inner
+    {
+      padding: 0px !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+      ion-label 
+      {
+        color: #000000;
+        font-size: 15px;
+        height: 100%;
+        line-height: 40px;
+        margin: 0px;
+      }
+      .ionic-selectable
+      {
+        max-width: 75%;
+      }
+    }
+    .select
+    {
+      padding-left: 0px !important;
+    }
+    ion-select
+    {
+      max-width: 100% !important;
+      width: 100%;
+      .select-icon
+      {
+        float: right !important;
+      }
+    }
+  }
+}
+
+.nothing-here
+{
+  // width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right bottom, from(#327669), to(#53a696));
+  img
+  {
+    width: 200px;
+  }
+  p
+  {
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding-top: 20px !important;
+    @extend.semibold;
+  }
+}
+
+ion-loading
+{
+  .loading-wrapper
+  {
+    background: none !important;
+    box-shadow: none !important;
+    padding: 95px !important;
+  }
+}
+
+.box
+{
+  border: 1px solid #dcdcdc;
+  border-bottom: 3px solid $theme;
+  margin-bottom: 16px;
+  .box-head
+  {
+    padding: 10px 16px;
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid #dcdcdc;
+    h1,h2
+    {
+      font-size: 12px;
+      @extend.regular;
+      letter-spacing: 2px;
+      color: $theme;
+      width: 100%;
+      .material-icons
+      {
+        font-size: 16px;
+        position: absolute;
+        top: 8px;
+        right: 110px;
+      }
+    }
+    h1
+    {
+      text-align: right;
+    }
+  } 
+  .box-body
+  {
+    padding: 10px 16px;
+    p
+    {
+      line-height: 22px;
+      padding-left: 26px !important;
+      color: #888888;
+      font-size: 12px;
+      text-align: left;
+      span
+      {
+        font-size: 12px;
+        @extend.regular;
+        letter-spacing: 2px;
+        color: $theme;
+      }
+    }
+  }
+}
+
+.follow-date
+{
+  border-left: 4px solid $theme;
+  margin: -10px -16px;
+  padding: 5px 10px;
+  background: $light-green;
+  .month, .day
+  {
+    font-size: 12px;
+    color: #888888;
+  }
+  .date
+  {
+    font-size: 30px;
+    padding: 5px !important;
+  }
+}
+
+.b-b-none
+{
+  border-bottom: none !important;
+}
+
+
+.calendar
+{
+  border: 1px solid #FF7474;
+  border-radius: 30px;
+  display: flex;
+  background: #ffffff;
+  height: 35px;
+  overflow: hidden;
+  margin: 16px;
+  
+  button
+  {
+    background: none;
+    border-right: 1px solid #FF7474;
+    height: 35px;
+    width: 40px;
+    box-shadow: none;
+    margin: 0px;
+    ion-icon
+    {
+      padding: 0px 10px;
+      color: #000000;
+    }
+    &.right
+    {
+      border-left: 1px solid #FF7474 !important;
+      border: none;
+    }
+  }
+
+  ion-datetime
+  {
+    width: 100%;
+    line-height: 35px;
+    text-align: center;
+    position: relative;
+    padding: 8px;
+
+     button
+    {
+      display: none;
+    }
+  }
+
+
+}
+
+
+.figure 
+{
+  height: 57px;
+  position: relative;
+  border-bottom: 2px solid $theme;
+  margin: 10px 0px;
+  
+  .thumb
+  {
+    margin-left: 16px;
+    background: #ffffff;
+    color: #333;
+    text-align: center;
+    border-radius: 100px;
+    height: 45px;
+    width: 45px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+    p
+    {
+      line-height: 45px;
+    }
+  }
+  .description
+  {
+    p
+    {
+      padding-left: 16px !important;
+      font-size: 16px;
+      @extend.regular;
+      line-height: 50px;
+    }
+    .material-icons
+    {
+      position: absolute;
+      transform: translatey(-50%);
+      top: 50%;
+      right: 16px;
+      font-size: 16px;
+    }
+  }
+  
+  &:last-child
+  {
+    border-bottom: 0px;
+  }
+}
+
+.checkin-list
+{
+  button
+  {
+    box-shadow: 0px 3px 6px #00000046 !important;
+    margin-bottom: 16px;
+    padding: 0px !important;
+    .item-inner 
+    {
+      background-image: none !important;
+      padding-right: 0px !important;
+      border-bottom: inherit !important;
+    }
+    ion-label
+    {
+      margin: 0px !important;
+      .heading
+      {
+        background: #f3f3f3;
+        h2
+        {
+          font-size: 15px;
+          color: $theme;
+          @extend.regular;
+          border-right: 1px solid #d3d3d3;
+          padding: 0px 16px !important;
+          line-height: 50px;
+          letter-spacing: 1px;
+        }
+        .thumb
+        {
+          position: absolute;
+          background: #fff;
+          box-shadow: 2px 3px 10px #ededed;
+          height: 35px;
+          width: 35px !important;
+          border-radius: 100%;
+          left: 16px;
+          top: 7px;
+          
+          h1
+          {
+            color: $theme;
+            font-size: 16px;
+            @extend.semibold;
+          }
+          
+          &:after
+          {
+            content: "";
+            position: absolute;
+            height: 35px;
+            width: 1px;
+            background: #c5c5c5;
+            top: 0px;
+            right: -11px;
+          }
+        }
+        .name-content
+        {
+          width: 100%;
+          height: 50px;
+          padding-left: 73px;
+          position: relative;
+          
+          .name
+          {
+            font-size: 14px;
+            position: relative;
+            line-height: 27px;
+            @extend.semibold;
+          }
+          
+          p
+          {
+            font-size: 12px;
+            @extend.regular;
+            white-space: normal;
+            line-height: 50px;
+            span
+            {
+              color: #a1b2e4;
+            }
+          }
+          
+          ion-icon
+          {
+            font-size: 17px;
+            color: $theme;
+            position: absolute;
+            top: 30%;
+            right: 24px;
+          }
+        }
+      }
+      .other-content
+      {
+        table
+        {
+          table-layout: fixed;
+          width: 100%;
+          
+          tr
+          {
+            td
+            {
+              padding: 5px 10px;
+              white-space: pre-line;
+              color: #333;
+              font-size: 12px;
+              letter-spacing: 1px;
+              line-height: 18px;
+              @extend.light;
+              
+              &.bold
+              {
+                color: #000000;
+                @extend.regular;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.figure-outer
+{
+  margin-bottom: 32px;
+  
+  .figure-innear
+  {
+    position: relative;
+    border: 1px solid #c9c9c9;
+    
+    .cs-figure
+    {
+      width: 100%;
+      padding: 10px;
+      p
+      {
+        font-size: 13px;
+        @extend.regular;
+        line-height: 20px;
+        color: #cccccc;
+        
+        &:nth-child(2)
+        {
+          font-size: 14px;
+          color: #000;
+        }
+      }
+      
+      ion-item
+      {
+        min-height: 30px;
+        padding-left: 0px !important;
+        background: #dedede !important;
+        
+        .item-inner
+        {
+          border-bottom: 0px;
+          box-shadow: none;
+          padding-right: 0px !important;
+          height: 30px;
+          
+          ion-label
+          {
+            color: #000000 !important;
+            font-size: 12px;
+            @extend.regular;
+            margin-left: 6px;
+          }
+          
+          .datetime-text 
+          {
+            font-size: 16px;
+            @extend.semibold;
+            letter-spacing: 2px;
+            padding-right: 18px;
+          }
+          
+          .text-input
+          {
+            text-align: center;
+            color: #000000;
+            width: 50px;
+            height: 30px;
+            border: 0px;
+            font-size: 12px;
+            margin-bottom: 0px;
+            @extend.regular;
+          }
+          
+          ion-textarea
+          {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 1px;
+            @extend.semibold;
+          }
+          
+          ion-select
+          {
+            max-width: 100%;
+            padding-left: 0px !important;
+            
+            .select-text
+            {
+              font-size: 12px;
+              @extend.semibold;
+            }
+          }
+          
+        }
+        
+        &:first-child, &:last-child
+        {
+          border-top: 0px !important;
+          border-bottom: 0px !important;
+        }
+      }
+
+      h2
+      {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        height: 100%;
+      }
+    }
+  }
+  
+  .counter
+  {
+    font-size: 18px;
+    color: $theme;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    right: -15px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background: #c9c9c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.border-b-none
+{
+  border-bottom: none !important;
+}
+
+.border-bottom
+{
+  border-bottom: 1px solid #c9c9c9;
+}
+
+.border-l-none
+{
+  border-left: none !important;
+}
+
+.border-left
+{
+  border-left: 1px solid #c9c9c9;
+}
+
+
+
+
+
+
+.red-line
+{
+  color: red !important;
+  font-size: 12px !important;
+  letter-spacing: 1px;
+  padding: 5px !important;
+  white-space: pre-line;
+}
+
+.error-left, .error-right
+{
+  color: red;
+  text-transform: capitalize;
+  font-size: 12px;
+  padding-top: 5px !important;
+}
+
+.error-right{right: 0px;}
+.error-left{left: 0px;}
+
+.relative {position: relative !important;}
+.absolute {position: absolute !important;}
+.fixed {position: fixed !important;}
+
+.dflex{display: flex !important;}
+
+.padding10{padding: 10px !important;}
+.padding16{padding: 16px !important;}
+.padding20{padding: 20px !important;}
+
+button
+{
+  .item-inner 
+  {
+    background-image: none !important;
+    border-bottom: inherit !important;
+  }
+}
+
+// ============================================== MARGIN_PROPERTIES
+.m0{margin: 0px !important;}
+@for $i from 1 through 500
+{
+  .m#{$i} {margin: 1px * $i !important}
+}
+
+
+// ============================================== MARGIN-LEFT_PROPERTIES
+.ml0{margin-left: 0px !important;}
+@for $i from 1 through 500
+{
+  .ml#{$i} {margin-left: 1px * $i !important}
+}
+
+
+// ============================================== MARGIN-RIGHT_PROPERTIES
+.mr0{margin-right: 0px !important;}
+@for $i from 1 through 500
+{
+  .mr#{$i} {margin-right: 1px * $i !important}
+}
+
+// ============================================== MARGIN-TOP_PROPERTIES
+.mt0{margin-top: 0px !important;}
+@for $i from 1 through 300
+{
+  .mt#{$i} {margin-top: 1px * $i !important}
+}
+
+
+// ============================================== MARGIN-BOTTOM_PROPERTIES
+.mb0{margin-bottom: 0px !important;}
+@for $i from 1 through 100
+{
+  .mb#{$i} {margin-bottom: 1px * $i !important}
+}
+
+// ============================================== PADDING_PROPERTIES
+.p0{padding: 0px !important;}
+@for $i from 1 through 300
+{
+  .p#{$i} {padding: 1px * $i !important}
+}
+
+// ============================================== PADDING-LEFT_PROPERTIES
+.pl0{padding-left: 0px !important;}
+@for $i from 1 through 300
+{
+  .pl#{$i} {padding-left: 1px * $i !important}
+}
+
+// ============================================== PADDING-RIGHT_PROPERTIES
+.pr0{padding-right: 0px !important;}
+@for $i from 1 through 100
+{
+  .pr#{$i} {padding-right: 1px * $i !important}
+}
+
+// ============================================== PADDING-TOP_PROPERTIES
+.pt0{padding-top: 0px !important;}
+@for $i from 1 through 100
+{
+  .pt#{$i} {padding-top: 1px * $i !important}
+}
+
+// ============================================== PADDING_BOTTOM_PROPERTIES
+.pb0{padding-bottom: 0px !important;}
+@for $i from 1 through 100
+{
+  .pb#{$i} {padding-bottom: 1px * $i !important}
+}
+
+// ============================================== TOP_PROPERTIES
+@for $i from 1 through 100
+{
+  .top#{$i} {top: 1px * $i !important}
+}
+
+
+
+// ============================================== BOTTOM_PROPERTIES
+@for $i from 1 through 50
+{
+  .bb#{$i} {bottom: 1px * $i !important}
+}
+
+
+// ============================================== FONT_PROPERTIES
+@for $i from 1 through 50
+{
+  .font#{$i} {font-size: 1px * $i !important; &:before{font-size: 1px * $i !important}}
+}
+
+// ============================================== WIDTH_PROPERTIES
+@for $i from 1 through 300
+{
+  .w#{$i} {width: 1px * $i !important}
+}
+
+// ============================================== WIDTH_PERSENTENCE_PROPERTIES
+@for $i from 1 through 100
+{
+  .wp#{$i} {width: 1% * $i !important}
+}
+
+// ============================================== HEIGHT_PROPERTIES
+@for $i from 1 through 500
+{
+  .h#{$i} {height: 1px * $i !important}
+}
+

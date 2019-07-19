@@ -1,0 +1,122 @@
+page-home {
+    .cs-header
+    {
+        background: $light-green;
+        height: 180px;
+        // .notifications
+        // {
+        //     position: relative;
+        //     margin-right: 16px;
+            
+        //     ion-icon
+        //     {
+        //         color: #ff1818;
+        //         font-size: 22px !important;
+        //     }
+        //     .number
+        //     {
+        //         position: absolute;
+        //         border: none;
+        //         background: #000;
+        //         color: #fff;
+        //         border-radius: 100%;
+        //         width: 15px;
+        //         height: 15px;
+        //         font-size: 10px;
+        //         line-height: 15px;
+        //         top: 7px;
+        //         right: 3px;
+        //     }
+        // }
+        button
+        {
+            background: none;
+            box-shadow: inherit;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        ion-icon
+        {
+            color: $theme;
+            font-size: 25px !important;
+        }
+        .main-logo
+        {
+            text-align: center;
+            padding-top: 16px;
+            img
+            {
+                height: 100px;
+                width: 230px;
+            }
+        }
+    }
+    .blog-list
+    {
+        position: absolute;
+        margin-top: -56px;
+        padding: 0px 20px 20px 20px;
+        width: 100%;
+        button
+        {
+            width: 100%;
+            height: 20vh;
+            float: left;
+            background: #fff;
+            box-shadow: 0px 3px 21px rgba(0, 0, 0, 0.2);
+            padding-left: 8px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            .item-inner
+            {
+                height: 20vh;
+                padding-right: 0px !important;
+            }
+            .fig
+            {
+                .thumb
+                {
+                    height: 100%;
+                    width: 50%;
+                    img
+                    {
+                        width: 80px;
+                        height: 70px;
+                    }
+                }
+                .description
+                {
+                    height: 100%;
+                    width: 100%;
+                    padding-left: 20px;
+                    h1
+                    {
+                        @extend.semibold;
+                        font-size: 16px;
+                        letter-spacing: 2px;
+                        margin-top: 16px !important;
+                        line-height: 47px;
+                    }
+                    .rigth-arrow 
+                    {
+                        position: absolute;
+                        top: 50%;
+                        right: 10px;
+                        width: 35px;
+                        height: 35px;
+                        line-height: 45px;
+                        text-align: center;
+                        background: #e48e66;
+                        color: #fff;
+                        border-radius: 30px;
+                        transform: translateY(-50%);
+                        &.green{ background: #ff5e5b; }
+                        &.blue{ background: #707487; }
+                    }
+                }
+            }
+        }
+        button:last-child{ margin-bottom: 0px !important; }
+    }
+}

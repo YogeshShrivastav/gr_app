@@ -1,0 +1,90 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Daily Work Report Detail</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<div class="nothing-here" *ngIf="show"> 
+		<div class="outer">
+			<div class="innear">
+				<img src="assets/imgs/nothing.svg" alt="">
+				<p>Nothing here yet</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="checkin-list" *ngIf="data.type == 'new_lead'">
+		<button ion-item *ngFor="let data of work_report">
+			<div class="heading">
+				<div class="thumb">
+					<div class="outer">
+						<div class="innear">
+							<h1>{{data.name.charAt(0) | titlecase}}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="name-content">
+					<p>{{data.name | titlecase}}</p>
+					<ion-icon name="ios-arrow-forward-outline"></ion-icon>
+				</div>
+			</div>
+			<div class="other-content">
+				<table>
+					<tr>
+						<td class="w70 bold">Date</td>
+						<td class="w10">:</td>
+						<td>{{data.date_created | date : 'd MMM y'}}</td>
+					</tr>
+					<tr>
+						<td class="w70 bold">Type</td>
+						<td class="w10">:</td>
+						<td>{{data.type}}</td>
+					</tr>
+					<tr>
+						<td class="w70 bold">Address</td>
+						<td class="w10">:</td>
+						<td>{{data.address}}</td>
+					</tr>
+				</table>
+			</div>
+		</button>
+	</div>
+	<div class="checkin-list" *ngIf="data.type != 'new_lead'">
+		<button ion-item *ngFor="let data of work_report">
+			<div class="heading">
+				<div class="thumb">
+					<div class="outer">
+						<div class="innear">
+							<h1>{{data.name.charAt(0) | titlecase}}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="name-content">
+					<p>{{data.name | titlecase}}</p>
+					<ion-icon name="ios-arrow-forward-outline"></ion-icon>
+				</div>
+			</div>
+			<div class="other-content">
+				<table>
+					<tr>
+						<td class="w70 bold">Date</td>
+						<td class="w10">:</td>
+						<td>{{data.date_created | date : 'd MMM y'}}</td>
+					</tr>
+					<tr>
+						<td class="w70 bold">Type</td>
+						<td class="w10">:</td>
+						<td>{{data.type}}</td>
+					</tr>
+					<tr>
+						<td class="w70 bold">Remark</td>
+						<td class="w10">:</td>
+						<td>{{data.remarks == ''? 'No Remarks' : data.remarks}}</td>
+					</tr>
+				</table>
+			</div>
+		</button>
+	</div>
+</ion-content>

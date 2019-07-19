@@ -1,0 +1,44 @@
+page-notification {
+    .info
+    {
+        background: #ffffff;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 16px;
+        padding: 16px;
+
+        .heading
+        {
+            margin: 10px 0px;
+            h2
+            {
+                color: #000000;
+                font-size: 14px;
+                @extend.regular;
+                width: 100%;
+            }
+            h3
+            {
+                width: 100%;
+                text-align: right;
+                color: #000000;
+                font-size: 14px;
+                @extend.regular;
+                letter-spacing: 2px;
+            }
+        }
+
+        p
+        {
+            letter-spacing: 1px;
+            line-height: 24px;
+            font-size: 12px;
+        }
+
+    }
+    
+    .read
+    {
+        background: #e0e0e0;
+    }
+
+}

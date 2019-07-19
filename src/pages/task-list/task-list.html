@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Task List</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    
+    <div class="cs-super-tabs dflex">
+        <button ion-button  [ngClass]="{'active':search.type_name == 'SALES' } " (click)="get_all_task('SALES')">Sales <strong>{{sales_row}}</strong></button>
+        <button ion-button  [ngClass]="{'active':search.type_name == 'SERVICE' }" (click)="get_all_task('SERVICE')">Service<strong>{{service_row}}</strong></button>
+    </div> 
+
+    <div class="nothing-here" *ngIf="show"> 
+		<div class="outer">
+			<div class="innear">
+				<img src="assets/imgs/nothing.svg" alt="">
+				<p>Nothing here yet</p>
+			</div>
+		</div>
+	</div>
+    
+    <div class="cs-effect" *ngFor="let row of user_task_detail;let i=index">
+        <div *ngIf="row.type == 'SALES'"  class="lead-box {{row.status == 'open'? 'open' : 'close'}}" (click)="SeeTaskDetail(row.type,row.id)">
+            <div class="o-heading">
+                <h1 class="dark-clr">{{row.date_created | date :'d MMM y hh mm a'}}</h1>
+            </div>
+            <div class="discription">
+                <h2 class="cust-name">{{row.type_name == 'Corporate'? row.company_name : row.name | titlecase }}</h2>
+                <p class="type">{{row.type_name}}</p>
+                <table>                    
+                    <tr>
+                        <td class="rborder-none" >
+                            <p>Status</p>
+                            <p>{{row.status | titlecase}}</p>
+                        </td>
+                        <td>
+                            <p>Item Count</p> 
+                            <a>{{row.item_count}}</a>
+                        </td>
+                        <td>
+                            <p>Total</p>
+                            <a>{{row.total}}</a>
+                        </td>
+                    </tr>                                              
+                </table>                
+            </div>
+        
+        </div>
+        <div class="lead-box {{row.status == 'open'? 'open' : 'close'}}" *ngIf="row.type == 'SERVICE'" (click)="SeeTaskDetail(row.type,row.id)">
+            <div class="o-heading">
+                <p class="status">{{row.status | titlecase}}</p>
+                <h1 class="dark-clr">{{row.date_created | date :'d MMM y hh mm a'}}</h1>
+            </div>
+            <div class="discription">
+                <h2 class="cust-name">{{row.type_name == 'Corporate'? row.company_name : row.name | titlecase }}</h2>
+                <p class="type">{{row.type_name}}</p>
+            </div>
+
+            <div class="figure-outer mb6 mt16">
+                <div class="figure-innear dflex white-bg">
+                    <div class="cs-figure">
+                        <p>Service type</p>
+                        <p>{{row.service_type}}</p>
+                    </div>
+                    <div class="cs-figure border-left">
+                        <p>Reason Of Call</p>
+                        <p>{{row.reason_of_call}}</p>
+                    </div>
+                    <div class="counter">{{row.item_count}}</div>
+                </div>
+            </div>
+        </div>          
+        
+    </div>
+    
+    <ion-fab right bottom (click)="CreatTask()">
+        <button ion-fab color="theme"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>    
+    
+</ion-content>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.72 34.72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #327669;
+      }
+
+      .cls-2 {
+        fill: #295d53;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Group_311" data-name="Group 311" transform="translate(-333 -289)">
+    <g id="whatsapp" transform="translate(333 289)">
+      <circle id="Ellipse_31" data-name="Ellipse 31" class="cls-1" cx="17.36" cy="17.36" r="17.36"/>
+      <path id="Path_229" data-name="Path 229" class="cls-2" d="M127.637,125.9c-1.007-.252-1.362-.986-2.321-1.334-.008-.044-1.972.29-6.546,7.078-.117.117-2.91,4.351-2.91,4.351a27.375,27.375,0,0,0,2.91,2.669c-.08,1.278-5.659,2.321-5.659,2.321l5.659,8.524a17.371,17.371,0,0,0,19.63-14.2Z" transform="translate(-103.934 -114.971)"/>
+    </g>
+    <g id="ic_border_color_24px" transform="translate(342 298.003)">
+      <path id="Path_81" data-name="Path 81" class="cls-3" d="M13.775,4.976,11.109,2.31,4,9.419v2.666H6.666Zm2.1-2.1a.708.708,0,0,0,0-1L14.216.205a.708.708,0,0,0-1,0L11.82,1.6l2.666,2.666Z" transform="translate(-1.156)"/>
+      <path id="Path_82" data-name="Path 82" class="cls-3" d="M0,20H17.062v2.844H0Z" transform="translate(0 -5.782)"/>
+    </g>
+  </g>
+</svg>

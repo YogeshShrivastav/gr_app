@@ -1,0 +1,112 @@
+<ion-content>
+	<div class="cs-header">
+		<ion-buttons end class="logout-btn" (click)="logout_user()">
+			<button ion-button icon-only >
+				<ion-icon name="md-power"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end class="notifications mr50" (click)="seeNotification()">
+				<button ion-button icon-only>
+					<ion-icon name="md-notifications">
+						<span class="number" *ngIf="notification_cn > 0" >{{notification_cn}}</span>
+					</ion-icon>
+				</button>
+			</ion-buttons>
+		<div class="main-logo"> <img src="assets/imgs/svg-imgs/main-logo.png" alt=""> </div>
+	</div>
+	<div class="blog-list">
+		<button ion-item (click)="GoLeadsList()">
+			<div class="fig dflex">
+				<div class="thumb">
+					<div class="outer">
+						<div class="innear">
+							<img src="assets/imgs/svg-imgs/leads-ic.svg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<h1>Leads</h1>
+					<div class="rigth-arrow blue">
+							<i class="material-icons">arrow_forward</i>
+						</div>
+				</div>
+			</div>
+		</button>
+		<button ion-item (click)="SeeTask()">
+			<div class="fig dflex">
+				<div class="thumb">
+					<div class="outer">
+						<div class="innear">
+							<img src="assets/imgs/svg-imgs/task-ic.svg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<h1>Task</h1>
+					<div class="rigth-arrow green">
+							<i class="material-icons">arrow_forward</i>
+						</div>
+				</div>
+			</div>
+		</button>
+		<button ion-item (click)="SeefollowUp()">
+			<div class="fig dflex">
+				<div class="thumb">
+					<div class="outer">
+						<div class="innear">
+							<img src="assets/imgs/svg-imgs/follow-up-ic.svg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<h1>Follow up</h1>
+					<div class="rigth-arrow">
+						<i class="material-icons">arrow_forward</i>
+					</div>
+				</div>
+			</div>
+		</button>
+		<!-- <button ion-item (click)="seeDailyReport()">
+			<div class="fig">
+				<div class="thumb">
+					<div class="outer">
+						<div class="innear">
+							<img src="assets/imgs/main-imgs/order-ic.svg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<h1>Mail</h1>
+				</div>
+			</div>
+		</button> -->
+		<!-- <button ion-item (click)="SeetTypeOfHoliday()">
+			<div class="fig">
+				<div class="thumb">
+					<div class="outer">
+						<div class="innear">
+							<img src="assets/imgs/main-imgs/holiday-ic.svg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="description" style="white-space: pre-line; margin-top: -38px;">
+					<h1>Leaves & Holidays</h1>
+				</div>
+			</div>
+		</button>
+		<button ion-item (click)="SeeExpenses()">
+			<div class="fig">
+				<div class="thumb">
+					<div class="outer">
+						<div class="innear">
+							<img src="assets/imgs/main-imgs/expences-ic.svg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<h1>Expenses</h1>
+				</div>
+			</div>
+		</button> -->
+	</div>
+</ion-content>

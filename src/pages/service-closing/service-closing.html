@@ -1,0 +1,170 @@
+<!--
+  Generated template for the ServiceClosingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+      <ion-title>Service Closing Report </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form #f="ngForm" (ngSubmit)="f.valid && addCloseService()">
+        <div class="cs-heading mt0 mb0">
+            BASIC DETAILS
+        </div>
+        <div class="edit">
+            
+            <ion-list>
+                <ion-item>
+                    <ion-label floating><span>Company Name</span></ion-label>
+                    <ion-input type="text" name="company_name" [(ngModel)]="service.company_name"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating><span>Address</span></ion-label>
+                    <ion-textarea cols="5" row="5" name="address" [(ngModel)]="service.address" type="text"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating><span>Mobile No.</span></ion-label>
+                    <ion-input type="text" name="mobile" (keypress)="MobileNumber($event)" min="0" minlength="10" maxlength="10"  [(ngModel)]="service.mobile" ></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating><span>State</span></ion-label>
+                    <ion-select name="state" [(ngModel)]="service.state">
+                        <ion-option *ngFor="let st of state_data" [value]="st.state_name">{{st.state_name}}</ion-option>                       
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating><span>Place</span></ion-label>
+                    <ion-input type="text" name="place" [(ngModel)]="service.place"></ion-input>
+                </ion-item>
+                <div class="cs-table">
+                        <table class="mt16">
+                            <tr>
+                                <th>Reason of Call</th>                                
+                            </tr>
+                            <tr *ngFor="let data of service_arr">
+                                <ng-container *ngIf="data.type == 'SERVICE'">
+                                    <td>{{data.reason_of_call}}</td> 
+                                </ng-container>                                                               
+                            </tr>
+                        </table>
+                    </div>
+            </ion-list>
+        </div>
+        
+        <div class="cs-heading mb0">
+            NATURE OF PROBLEM
+        </div>
+        
+        <div class="edit">
+            <ion-list>
+                <ion-item>
+                    <ion-label floating><span>Nature of Problem</span></ion-label>
+                    <ion-input type="text" name="nature_of_problem" [(ngModel)]="service.nature_of_problem" ></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating><span>Break Down</span></ion-label>
+                    <ion-input type="text" name="break_down" [(ngModel)]="service.break_down" ></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Machine Type</span></ion-label>
+                    <ion-input type="text" name="machine_type" [(ngModel)]="service.machine_type" ></ion-input>                    
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Make</span></ion-label>
+                    <ion-input type="text" name="make" [(ngModel)]="service.make"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Call Reported by</span></ion-label>
+                    <ion-input type="text" name="call_reported_by" [(ngModel)]="service.call_reported_by"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Call Reported Date</span></ion-label>
+                    <ion-datetime displayFormat="DD/MM/YYYY" name="call_reported_date"  [(ngModel)]="service.call_reported_date" ></ion-datetime>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Location of Installation :</span></ion-label>
+                    <ion-textarea cols="5" row="5" type="text" name="location_of_installation"  [(ngModel)]="service.location_of_installation"></ion-textarea>
+                </ion-item>
+            </ion-list>
+        </div>
+        
+        <div class="cs-heading mb0">
+            SERVICE DETAILS
+        </div>
+        
+        <div class="edit">
+            <ion-list>
+                <ion-item>
+                    <ion-label floating><span>Status</span></ion-label>
+                    <ion-select name="status" [(ngModel)]="service.status" disabled="true">
+                        <ion-option value="Open">Open</ion-option>  
+                        <ion-option value="Close">Close</ion-option>
+                    </ion-select>
+                </ion-item>
+                    
+                <ion-item>
+                    <ion-label floating><span>Start of Service</span></ion-label>
+                    <ion-datetime displayFormat="DD/MM/YYYY"  name="start_of_srvice_date"  [(ngModel)]="service.start_of_srvice_date"></ion-datetime>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>End of service</span></ion-label>
+                    <ion-datetime displayFormat="DD/MM/YYYY"  name="end_of_service_date"  [(ngModel)]="service.end_of_service_date"></ion-datetime>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Description</span></ion-label>
+                    <ion-input type="text"  name="service_detail"  [(ngModel)]="service.service_detail"></ion-input>
+                </ion-item>                
+            </ion-list>
+        </div>
+        
+        <div class="cs-heading mb0">
+            CUSTOMER FEEDBACK
+        </div>
+        
+        <div class="edit">
+            <ion-list>
+                <ion-item>
+                    <ion-label floating><span>Remark</span></ion-label>
+                    <ion-textarea cols="5" row="5" name="customer_remarks"  [(ngModel)]="service.customer_remarks" type="text"></ion-textarea>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Name </span></ion-label>
+                    <ion-input type="text" name="customer_name"  [(ngModel)]="service.customer_name"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Designation</span></ion-label>
+                    <ion-input type="text" name="customer_designation"  [(ngModel)]="service.customer_designation"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Phone/Fax</span></ion-label>
+                    <ion-input type="text" (keypress)="MobileNumber($event)" min="0"  name="customer_mobile" minlength="16" maxlength="16"  [(ngModel)]="service.customer_mobile"></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                    <ion-label floating><span>Company Name </span></ion-label>
+                    <ion-input type="text" name="customer_company_name"  [(ngModel)]="service.customer_company_name"></ion-input>
+                </ion-item>
+            </ion-list>
+        </div>
+        
+        <div class="cs-btn m16">
+            <button ion-button round block>Save</button>
+        </div>
+  </form> 
+</ion-content>
+

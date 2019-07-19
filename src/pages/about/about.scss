@@ -1,0 +1,10 @@
+page-about {
+    p
+    {
+        font-size: 14px;
+        line-height: 24px;
+        color: rgb(0, 128, 128);
+        margin-top: 20px !important;
+    }
+    p:first-child{ margin-top: 0px !important; }
+}

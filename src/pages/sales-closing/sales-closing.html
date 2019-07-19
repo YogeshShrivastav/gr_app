@@ -1,0 +1,51 @@
+<ion-header>	
+	<ion-navbar>
+		<ion-title>Sales Closing Report</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<form #f="ngForm" (ngSubmit)=" f.valid && submit_closing_report()">
+		<div class="edit">	
+			<ion-list>
+				<ion-item>
+					<ion-label floating><span><strong>*</strong>Delivery Date</span></ion-label>
+					<ion-datetime displayFormat="MMM DD YYYY" name="delivery_date" [(ngModel)]="data.delivery_date" [max]="maxDate" required> <i class="material-icons">insert_invitation</i></ion-datetime>
+				</ion-item>
+				<ion-item>
+					<ion-label floating><span><strong></strong>Remark</span></ion-label>
+					<ion-textarea class="h60" cols="10" rows="5" name="remarks"  [(ngModel)]="data.remarks"></ion-textarea>
+				</ion-item>
+				<ion-item >
+					<ion-label floating><span><strong>*</strong>Payment Mode</span></ion-label>
+					<ion-select name="payment_mode" [(ngModel)]="data.payment_mode" required>
+						<ion-option value="Cash">Cash</ion-option>
+						<ion-option value="Bank">Bank</ion-option>
+						<ion-option value="Cheque">Cheque</ion-option>
+					</ion-select>
+				</ion-item>
+				<ion-item *ngIf="data.payment_mode == 'Bank' || data.payment_mode == 'Cheque' ">
+					<ion-label floating><span><strong>*</strong>Transacrion ID</span></ion-label>
+					<ion-input type="text" name="transaction_id"  [(ngModel)]="data.transaction_id" required></ion-input>
+				</ion-item>
+				<div class="dflex" *ngFor="let row of product_arr;let i=index">
+					<ion-item class="wp50 mr8">
+						<ion-label floating><span>Product</span></ion-label>
+						<ion-input type="text" name="p_name{{i}}" placeholder="{{row.product_name}}"  [(ngModel)]="product_arr[i].product_name"  readonly="true"></ion-input>
+					</ion-item>
+					<ion-item class="wp30 ml8">
+						<ion-label floating><span>Qty</span></ion-label>
+						<ion-input type="text" name="p_qty{{i}}" placeholder="{{row.qty}}" [(ngModel)]="product_arr[i].qty" readonly="true" ></ion-input>
+					</ion-item>
+					<ion-item class="wp30 ml8">
+						<ion-label floating><span>Delivered Qty</span></ion-label>
+						<ion-input type="number" readonly="product_arr[i].qty == 0? 'readonly' : 'false'" name="delivery_qty{{i}}" min='0' max='{{row.qty}}' [(ngModel)]="product_arr[i].delivery_qty"  (keyup)="calculate(i,product_arr[i].delivery_qty)"></ion-input>
+					</ion-item>
+				</div>
+			</ion-list>
+		</div>
+		<div class="cs-btn m32">
+			<button type="submit" ion-button block round name="Submit">Submit</button>
+		</div>
+	</form>
+</ion-content>

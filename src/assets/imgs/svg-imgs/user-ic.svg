@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b3b3b3;
+      }
+    </style>
+  </defs>
+  <path id="ic_person_outline_24px" class="cls-1" d="M14,4a5,5,0,1,0,5,5A5,5,0,0,0,14,4Zm0,11.25c-3.337,0-10,1.675-10,5V24H24V20.25C24,16.925,17.337,15.25,14,15.25Z" transform="translate(-4 -4)"/>
+</svg>

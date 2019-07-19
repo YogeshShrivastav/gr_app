@@ -1,0 +1,62 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Lead List</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	
+	<div class="cs-super-tabs dflex m0">
+		<button ion-button [ngClass]="{'active':search.type =='Consumer'}" (click)="set_val('Consumer');lead_list()">Consumer<strong>{{consumer_count}}</strong></button>
+		<button ion-button [ngClass]="{'active':search.type =='Corporate'}" (click)="set_val('Corporate');lead_list()">Corporate<strong>{{corporate_count}}</strong></button>
+	</div> 
+
+	<div class="nothing-here" *ngIf="show"> 
+		<div class="outer">
+			<div class="innear">
+				<img src="assets/imgs/nothing.svg" alt="">
+				<p>Nothing here yet</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="cs-effect" *ngFor="let data of lead_data">
+		<div class="lead-box">
+			<div class="heading" (click)="LeadDetail(data.id)">
+				<p *ngIf="data.name">{{data.name  | titlecase}}</p>
+				<p *ngIf="data.company_name">{{data.company_name  | titlecase}}</p>
+				<h1><i class="material-icons">insert_invitation</i> {{data.date_created | date:' d MMM y'}}</h1>
+			</div>
+			<div class="discription">
+				<table>
+					<tr>
+						<td class="rborder-none">
+							<p>Email</p>
+							<a [href]="'mailto:'+ data.email + '?Subject=My%20Custom%20Subject'">{{data.email}}</a>
+							<!-- <a *ngIf="(!data.email)">------</a> -->
+						</td>
+						<td>
+							<p>Mobile no.</p> 
+							<a href="tel:{{data.mobile}}">{{data.mobile}}</a>
+						</td>
+					</tr>
+					<tr (click)="LeadDetail(data.id)">
+						<td colspan="2">
+							<p>Address</p>
+							<a>{{data.address | titlecase}} {{data.city | titlecase}} {{data.district | titlecase}} {{data.state | titlecase}} {{data.pincode}} </a>
+							
+							<!-- <a *ngIf="(!data.street) && (!data.city) && (!data.district) && (!data.state) && (!data.pincode)">------</a> -->
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	
+	<ion-fab right bottom (click)="CreatLeads()">
+		<button ion-fab color="theme"><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
+	
+</ion-content>

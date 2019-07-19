@@ -1,0 +1,7 @@
+{
+  "name": "G-R-Industrial-App",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

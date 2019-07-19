@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Daily Working Report</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="calendar">
+        <div><button ion-button (click)="change_date('prev')"><ion-icon name="arrow-back"></ion-icon></button></div>
+        <div class="wp100"><ion-datetime name="today" [(ngModel)]="today" (ionChange)="set_date();get_daily_report()" [max]="tmp_today"></ion-datetime></div>
+        <div><button ion-button class="right" float-right [disabled]='today == tmp_today' (click)="change_date('next')"><ion-icon name="arrow-forward"></ion-icon></button></div>
+    </div>
+
+    <div class="figure dflex" (click)="goOndetail('new_lead')">
+      <div class="thumb">
+        <p>{{data.new_lead}}</p>
+      </div>
+      <div class="description">
+        <p>New Leads</p>
+        <i class="material-icons">arrow_forward</i>
+      </div>
+    </div>
+    <div class="figure dflex" (click)="goOndetail('new_sale')">
+      <div class="thumb">
+        <p>{{data.new_sale}}</p>
+      </div>
+      <div class="description">
+        <p>New Sales</p>
+        <i class="material-icons">arrow_forward</i>
+      </div>
+    </div>
+    <div class="figure dflex" (click)="goOndetail('close_sale')">
+      <div class="thumb">
+        <p>{{data.close_sale}}</p>
+      </div>
+      <div class="description">
+        <p>Closed Sales</p>
+        <i class="material-icons">arrow_forward</i>
+      </div>
+    </div>
+    <div class="figure dflex" (click)="goOndetail('new_service')">
+      <div class="thumb">
+        <p>{{data.new_service}}</p>
+      </div>
+      <div class="description">
+        <p>New Service</p>
+        <i class="material-icons">arrow_forward</i>
+      </div>
+    </div>
+    <div class="figure dflex" (click)="goOndetail('close_service')">
+      <div class="thumb">
+        <p>{{data.close_service}}</p>
+      </div>
+      <div class="description">
+        <p>Closed Service</p>
+        <i class="material-icons">arrow_forward</i>
+      </div>
+    </div>
+</ion-content>
